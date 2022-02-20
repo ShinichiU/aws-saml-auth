@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Generate aws-cli sts script using IdP federation",
+  "version": "0.1.0",
+
+  "description": "A Chrome extension that allows you to use Google Workspace or other IdP federations and get a script to generate AWS temporary (STS) credentials.",
+  "icons": {
+    "16": "icons/icon_16x16.png",
+    "48": "icons/icon_48x48.png",
+    "128": "icons/icon_128x128.png"
+  },
+  "content_scripts" :[
+    {
+      "matches" : [
+        "https://signin.aws.amazon.com/saml"
+      ],
+      "js" : ["script/content_script.js"],
+      "run_at" : "document_idle",
+      "all_frames" : true
+    }
+  ]
+}
